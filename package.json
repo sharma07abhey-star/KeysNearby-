@@ -1,0 +1,14 @@
+{
+  "name": "01-folder-rtx",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix keys-nearby run dev",
+    "dev": "npm --prefix keys-nearby run dev",
+    "build": "npm --prefix keys-nearby run build",
+    "preview": "npm --prefix keys-nearby run preview"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0"
+  }
+}

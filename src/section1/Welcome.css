@@ -1,0 +1,325 @@
+.carnova-container {
+  min-height: 100vh;
+  background: #060b13;
+  color: #fff;
+}
+
+.carnova-hero-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background:
+    linear-gradient(to bottom, #060b13d1 0%, #060b1359 45%, #060b13f2 100%),
+    url("/carnova-hero.jpg") center bottom/cover no-repeat;
+}
+
+.carnova-ambient-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 72% 28%, #2b6bf529, transparent 50%),
+    radial-gradient(circle at 18% 45%, #14b8a614, transparent 45%);
+}
+
+.carnova-header {
+  position: sticky;
+  top: 16px;
+  z-index: 2;
+  padding: 0 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.carnova-nav {
+  width: 100%;
+  max-width: 1280px;
+  min-height: 64px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0a1423a6;
+  border: 1px solid #ffffff17;
+  border-radius: 999px;
+  backdrop-filter: blur(24px);
+}
+
+.carnova-logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.carnova-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-item {
+  color: #e2e8f0b8;
+  font-size: 14.5px;
+  padding: 6px 0;
+  position: relative;
+}
+
+.nav-item.active {
+  color: #fff;
+  font-weight: 600;
+}
+
+.nav-item.active::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: #3b82f6;
+}
+
+.carnova-nav-signin-btn,
+.carnova-hero-getstarted-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 600;
+  background: linear-gradient(135deg, #3d79f8, #2563eb);
+  box-shadow: 0 8px 20px #1d4ed833;
+  transition:
+    opacity 0.2s,
+    box-shadow 0.2s;
+}
+
+.carnova-nav-signin-btn {
+  padding: 9px 24px;
+  font-size: 14px;
+}
+
+.carnova-hero-getstarted-btn {
+  padding: 13px 32px;
+  font-size: 15px;
+}
+
+.carnova-nav-signin-btn:hover,
+.carnova-hero-getstarted-btn:hover {
+  opacity: 0.92;
+  box-shadow: 0 10px 24px #1d4ed855;
+}
+
+.carnova-main,
+.carnova-ruler-container,
+.carnova-about-section {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.carnova-main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 140px;
+}
+
+.carnova-hero-content {
+  max-width: 680px;
+}
+
+.carnova-badge {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 6px 14px;
+  border: 1px solid #3b82f64d;
+  border-radius: 999px;
+  color: #94a3b8;
+  font-size: 13px;
+  background: #0e192ab3;
+  backdrop-filter: blur(8px);
+}
+
+.carnova-badge span:first-child {
+  color: #3b82f6;
+}
+
+.carnova-title {
+  margin: 0 0 22px;
+  font-size: clamp(40px, 4.6vw, 62px);
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  text-shadow: 0 4px 20px #0009;
+}
+
+.carnova-subtitle {
+  max-width: 480px;
+  margin: 0 0 34px;
+  color: #cbd5e1;
+  font-size: 16.5px;
+  line-height: 1.65;
+  text-shadow: 0 2px 10px #000b;
+}
+
+.carnova-ruler-container {
+  margin-top: 40px;
+}
+
+.carnova-horizontal-ruler {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(90deg, transparent, #3b82f666, transparent);
+}
+
+.carnova-about-section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.carnova-section-header {
+  max-width: 720px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.section-eyebrow {
+  display: block;
+  margin-bottom: 22px;
+  color: #64748b;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.carnova-section-header h2 {
+  margin: 0 0 22px;
+  font-size: clamp(32px, 3.5vw, 42px);
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+.carnova-section-header p,
+.carnova-feature-card p {
+  margin: 0;
+  color: #8fa0b5;
+  line-height: 1.65;
+}
+
+.carnova-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.carnova-feature-card {
+  min-height: 230px;
+  padding: 32px 24px;
+  border: 1px solid #ffffff12;
+  border-radius: 20px;
+  background: #0b1423a6;
+}
+
+.feature-icon-wrapper {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 20px;
+  border: 1px solid rgba(var(--accent-rgb), 0.35);
+  border-radius: 14px;
+  background: rgba(var(--accent-rgb), 0.2);
+  font-size: 24px;
+}
+
+.icon-blue {
+  --accent-rgb: 37, 99, 235;
+}
+
+.icon-emerald {
+  --accent-rgb: 16, 185, 129;
+}
+
+.icon-rose {
+  --accent-rgb: 239, 68, 68;
+}
+
+.icon-purple {
+  --accent-rgb: 168, 85, 247;
+}
+
+.icon-cyan {
+  --accent-rgb: 6, 182, 212;
+}
+
+.icon-amber {
+  --accent-rgb: 245, 158, 11;
+}
+
+.carnova-feature-card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.carnova-feature-card p {
+  font-size: 14px;
+}
+
+.carnova-footer {
+  border-top: 1px solid #ffffff12;
+  padding: 32px;
+  color: #64748b;
+  background: #04080e;
+  text-align: center;
+  font-size: 13.5px;
+}
+
+@media (max-width: 1024px) {
+  .carnova-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .carnova-header {
+    padding: 0 16px;
+  }
+
+  .carnova-nav {
+    padding: 0 16px;
+  }
+
+  .carnova-nav-links .nav-item {
+    display: none;
+  }
+
+  .carnova-main,
+  .carnova-ruler-container,
+  .carnova-about-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .carnova-main {
+    padding-top: 60px;
+    padding-bottom: 100px;
+  }
+
+  .carnova-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .desktop-break {
+    display: none;
+  }
+}
