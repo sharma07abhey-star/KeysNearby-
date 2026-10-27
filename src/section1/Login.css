@@ -144,3 +144,16 @@
     padding: 20px;
   }
 }
+
+/* ---- additions: shared <Field>, demo button, show-password ---- */
+.auth-lead { margin: -4px 0 20px; text-align: center; color: #8fa0b5; font-size: 14px; }
+.auth-form { display: grid; gap: 4px; }
+.auth-form .ui-field { margin-bottom: 12px; }
+.auth-form .ui-field label { display: block; margin-bottom: 7px; color: #cbd5e1; font-size: 13px; font-weight: 600; }
+.auth-form .ui-control { width: 100%; padding: 12px 14px; border: 1px solid #2a2f3a; border-radius: 10px; background: #0b0d12; color: #fff; }
+.auth-form .ui-control:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px #3b82f633; }
+.auth-form .ui-control.has-error { border-color: #fb7185; }
+.auth-form .ui-error { display: block; margin-top: 6px; color: #fb7185; font-size: 12px; }
+.auth-check { display: flex; align-items: center; gap: 8px; margin: -2px 0 14px; color: #8fa0b5; font-size: 13px; cursor: pointer; }
+.auth-demo-btn { width: 100%; margin-top: 12px; padding: 12px; border: 1px dashed #334155; border-radius: 10px; background: transparent; color: #93c5fd; font-weight: 600; transition: background .2s, border-color .2s; }
+.auth-demo-btn:hover { background: #3b82f61a; border-color: #3b82f6; }

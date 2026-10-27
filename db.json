@@ -1,0 +1,731 @@
+{
+  "users": [
+    {
+      "id": "user-demo",
+      "name": "Abhey Sharma",
+      "email": "abhey@example.com",
+      "password": "demo123",
+      "phone": "9999999999",
+      "location": "Koramangala, Bengaluru",
+      "verification": {
+        "email": true,
+        "phone": true,
+        "identity": true,
+        "licence": true
+      }
+    },
+    {
+      "id": "user-arjun",
+      "name": "Arjun Mehta",
+      "email": "arjun@example.com",
+      "password": "demo123",
+      "phone": "",
+      "location": "Koramangala, Bengaluru",
+      "verification": {
+        "email": true,
+        "phone": true,
+        "identity": true,
+        "licence": true
+      }
+    },
+    {
+      "id": "user-priya",
+      "name": "Priya Sharma",
+      "email": "priya@example.com",
+      "password": "demo123",
+      "phone": "",
+      "location": "Indiranagar, Bengaluru",
+      "verification": {
+        "email": true,
+        "phone": true,
+        "identity": true,
+        "licence": true
+      }
+    },
+    {
+      "id": "user-rahul",
+      "name": "Rahul Verma",
+      "email": "rahul@example.com",
+      "password": "demo123",
+      "phone": "",
+      "location": "HSR Layout, Bengaluru",
+      "verification": {
+        "email": true,
+        "phone": true,
+        "identity": true,
+        "licence": true
+      }
+    },
+    {
+      "id": "user-kabir",
+      "name": "Kabir Singh",
+      "email": "kabir@example.com",
+      "password": "demo123",
+      "phone": "",
+      "location": "Domlur, Bengaluru",
+      "verification": {
+        "email": true,
+        "phone": true,
+        "identity": true,
+        "licence": true
+      }
+    },
+    {
+      "id": "user-neha",
+      "name": "Neha Kapoor",
+      "email": "neha@example.com",
+      "password": "demo123",
+      "phone": "",
+      "location": "Whitefield, Bengaluru",
+      "verification": {
+        "email": true,
+        "phone": true,
+        "identity": true,
+        "licence": true
+      }
+    },
+    {
+      "id": "user-suresh",
+      "name": "Suresh Iyer",
+      "email": "suresh@example.com",
+      "password": "demo123",
+      "phone": "",
+      "location": "Jayanagar, Bengaluru",
+      "verification": {
+        "email": true,
+        "phone": true,
+        "identity": true,
+        "licence": true
+      }
+    },
+    {
+      "id": "user-ananya",
+      "name": "Ananya Rao",
+      "email": "ananya@example.com",
+      "password": "demo123",
+      "phone": "",
+      "location": "BTM Layout, Bengaluru",
+      "verification": {
+        "email": true,
+        "phone": true,
+        "identity": true,
+        "licence": true
+      }
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "creta",
+      "brand": "Hyundai",
+      "model": "Creta",
+      "type": "SUV",
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "seats": 5,
+      "year": 2023,
+      "price": 1800,
+      "rating": 4.9,
+      "trips": 42,
+      "location": "Koramangala, Bengaluru",
+      "distance": 1.2,
+      "color": "blue",
+      "image": "car_hyundai_creta.jpg",
+      "ownerName": "Arjun Mehta",
+      "features": [
+        "Sunroof",
+        "Bluetooth",
+        "Rear camera"
+      ],
+      "pos": {
+        "x": 30,
+        "y": 44
+      },
+      "name": "Hyundai Creta",
+      "ownerId": "user-arjun",
+      "owner": "Arjun Mehta",
+      "available": true
+    },
+    {
+      "id": "city",
+      "brand": "Honda",
+      "model": "City",
+      "type": "Sedan",
+      "fuel": "Petrol",
+      "transmission": "Manual",
+      "seats": 5,
+      "year": 2022,
+      "price": 1600,
+      "rating": 4.8,
+      "trips": 31,
+      "location": "Indiranagar, Bengaluru",
+      "distance": 2.1,
+      "color": "violet",
+      "image": "car_honda_city.jpg",
+      "ownerName": "Priya Sharma",
+      "features": [
+        "Cruise control",
+        "Bluetooth",
+        "Airbags"
+      ],
+      "pos": {
+        "x": 48,
+        "y": 66
+      },
+      "name": "Honda City",
+      "ownerId": "user-priya",
+      "owner": "Priya Sharma",
+      "available": true
+    },
+    {
+      "id": "nexon",
+      "brand": "Tata",
+      "model": "Nexon EV",
+      "type": "SUV",
+      "fuel": "Electric",
+      "transmission": "Automatic",
+      "seats": 5,
+      "year": 2024,
+      "price": 1500,
+      "rating": 4.7,
+      "trips": 28,
+      "location": "HSR Layout, Bengaluru",
+      "distance": 2.8,
+      "color": "cyan",
+      "image": "car_tata_nexon.jpg",
+      "ownerName": "Rahul Verma",
+      "features": [
+        "300 km range",
+        "Fast charging",
+        "Rear camera"
+      ],
+      "pos": {
+        "x": 68,
+        "y": 38
+      },
+      "name": "Tata Nexon EV",
+      "ownerId": "user-rahul",
+      "owner": "Rahul Verma",
+      "available": true
+    },
+    {
+      "id": "swift",
+      "brand": "Maruti",
+      "model": "Swift",
+      "type": "Hatchback",
+      "fuel": "Petrol",
+      "transmission": "Manual",
+      "seats": 5,
+      "year": 2021,
+      "price": 1300,
+      "rating": 4.8,
+      "trips": 55,
+      "location": "Domlur, Bengaluru",
+      "distance": 3.4,
+      "color": "orange",
+      "image": "car_maruti_swift.jpg",
+      "ownerName": "Kabir Singh",
+      "features": [
+        "Great mileage",
+        "Bluetooth",
+        "Easy parking"
+      ],
+      "pos": {
+        "x": 58,
+        "y": 20
+      },
+      "name": "Maruti Swift",
+      "ownerId": "user-kabir",
+      "owner": "Kabir Singh",
+      "available": true
+    },
+    {
+      "id": "thar",
+      "brand": "Mahindra",
+      "model": "Thar",
+      "type": "SUV",
+      "fuel": "Diesel",
+      "transmission": "Manual",
+      "seats": 4,
+      "year": 2023,
+      "price": 2400,
+      "rating": 4.9,
+      "trips": 19,
+      "location": "Whitefield, Bengaluru",
+      "distance": 5.2,
+      "color": "orange",
+      "image": null,
+      "ownerName": "Neha Kapoor",
+      "features": [
+        "4x4",
+        "Soft top",
+        "Weekend favourite"
+      ],
+      "pos": {
+        "x": 82,
+        "y": 58
+      },
+      "name": "Mahindra Thar",
+      "ownerId": "user-neha",
+      "owner": "Neha Kapoor",
+      "available": true
+    },
+    {
+      "id": "innova",
+      "brand": "Toyota",
+      "model": "Innova Crysta",
+      "type": "MPV",
+      "fuel": "Diesel",
+      "transmission": "Manual",
+      "seats": 7,
+      "year": 2022,
+      "price": 2800,
+      "rating": 4.8,
+      "trips": 37,
+      "location": "Jayanagar, Bengaluru",
+      "distance": 4.1,
+      "color": "violet",
+      "image": null,
+      "ownerName": "Suresh Iyer",
+      "features": [
+        "7 seats",
+        "Roof AC vents",
+        "Big boot"
+      ],
+      "pos": {
+        "x": 22,
+        "y": 72
+      },
+      "name": "Toyota Innova Crysta",
+      "ownerId": "user-suresh",
+      "owner": "Suresh Iyer",
+      "available": true
+    },
+    {
+      "id": "activa",
+      "brand": "Honda",
+      "model": "Activa 6G",
+      "type": "Scooter",
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "seats": 2,
+      "year": 2023,
+      "price": 450,
+      "rating": 4.6,
+      "trips": 64,
+      "location": "BTM Layout, Bengaluru",
+      "distance": 1.9,
+      "color": "cyan",
+      "image": null,
+      "ownerName": "Ananya Rao",
+      "features": [
+        "Helmet included",
+        "Under-seat storage"
+      ],
+      "pos": {
+        "x": 40,
+        "y": 82
+      },
+      "name": "Honda Activa 6G",
+      "ownerId": "user-ananya",
+      "owner": "Ananya Rao",
+      "available": true
+    },
+    {
+      "id": "my-i20",
+      "brand": "Hyundai",
+      "model": "i20",
+      "type": "Hatchback",
+      "fuel": "Petrol",
+      "transmission": "Manual",
+      "seats": 5,
+      "year": 2022,
+      "price": 1400,
+      "rating": 4.8,
+      "trips": 12,
+      "location": "Koramangala, Bengaluru",
+      "distance": 0.3,
+      "color": "blue",
+      "image": null,
+      "ownerName": "Abhey Sharma",
+      "features": [
+        "Bluetooth",
+        "Rear camera"
+      ],
+      "pos": {
+        "x": 36,
+        "y": 50
+      },
+      "name": "Hyundai i20",
+      "ownerId": "user-demo",
+      "owner": "Abhey Sharma",
+      "available": true
+    },
+    {
+      "id": "my-re350",
+      "brand": "Royal Enfield",
+      "model": "Classic 350",
+      "type": "Bike",
+      "fuel": "Petrol",
+      "transmission": "Manual",
+      "seats": 2,
+      "year": 2021,
+      "price": 900,
+      "rating": 4.9,
+      "trips": 9,
+      "location": "Koramangala, Bengaluru",
+      "distance": 0.3,
+      "color": "orange",
+      "image": null,
+      "ownerName": "Abhey Sharma",
+      "available": false,
+      "features": [
+        "Two helmets",
+        "Saddle bags"
+      ],
+      "pos": {
+        "x": 34,
+        "y": 54
+      },
+      "name": "Royal Enfield Classic 350",
+      "ownerId": "user-demo",
+      "owner": "Abhey Sharma"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "booking-1",
+      "vehicleId": "creta",
+      "vehicle": "Hyundai Creta",
+      "location": "Koramangala, Bengaluru",
+      "start": "2026-08-28",
+      "end": "2026-08-30",
+      "days": 2,
+      "total": 3780,
+      "status": "Completed",
+      "protection": false,
+      "userId": "user-demo"
+    },
+    {
+      "id": "booking-2",
+      "vehicleId": "city",
+      "vehicle": "Honda City",
+      "location": "Indiranagar, Bengaluru",
+      "start": "2026-07-29",
+      "end": "2026-07-30",
+      "days": 1,
+      "total": 1680,
+      "status": "Completed",
+      "protection": false,
+      "userId": "user-demo"
+    },
+    {
+      "id": "booking-4",
+      "vehicleId": "swift",
+      "vehicle": "Maruti Swift",
+      "location": "Domlur, Bengaluru",
+      "start": "2026-11-03",
+      "end": "2026-11-05",
+      "days": 2,
+      "total": 2730,
+      "status": "Confirmed",
+      "protection": false,
+      "userId": "user-demo"
+    },
+    {
+      "id": "booking-3",
+      "vehicleId": "nexon",
+      "vehicle": "Tata Nexon EV",
+      "location": "HSR Layout, Bengaluru",
+      "start": "2026-10-30",
+      "end": "2026-11-01",
+      "days": 2,
+      "total": 3150,
+      "status": "Confirmed",
+      "protection": false,
+      "userId": "user-demo"
+    }
+  ],
+  "hostRequests": [
+    {
+      "id": "req-booking-1",
+      "vehicleId": "creta",
+      "vehicle": "Hyundai Creta",
+      "renter": "Abhey Sharma",
+      "renterId": "user-demo",
+      "bookingId": "booking-1",
+      "start": "2026-08-28",
+      "end": "2026-08-30",
+      "days": 2,
+      "payout": 3420,
+      "status": "Accepted",
+      "ownerId": "user-arjun"
+    },
+    {
+      "id": "req-booking-2",
+      "vehicleId": "city",
+      "vehicle": "Honda City",
+      "renter": "Abhey Sharma",
+      "renterId": "user-demo",
+      "bookingId": "booking-2",
+      "start": "2026-07-29",
+      "end": "2026-07-30",
+      "days": 1,
+      "payout": 1520,
+      "status": "Accepted",
+      "ownerId": "user-priya"
+    },
+    {
+      "id": "req-booking-4",
+      "vehicleId": "swift",
+      "vehicle": "Maruti Swift",
+      "renter": "Abhey Sharma",
+      "renterId": "user-demo",
+      "bookingId": "booking-4",
+      "start": "2026-11-03",
+      "end": "2026-11-05",
+      "days": 2,
+      "payout": 2470,
+      "status": "Accepted",
+      "ownerId": "user-kabir"
+    },
+    {
+      "id": "req-booking-3",
+      "vehicleId": "nexon",
+      "vehicle": "Tata Nexon EV",
+      "renter": "Abhey Sharma",
+      "renterId": "user-demo",
+      "bookingId": "booking-3",
+      "start": "2026-10-30",
+      "end": "2026-11-01",
+      "days": 2,
+      "payout": 2850,
+      "status": "Accepted",
+      "ownerId": "user-rahul"
+    },
+    {
+      "id": "req-1",
+      "vehicleId": "my-i20",
+      "vehicle": "Hyundai i20",
+      "renter": "Rohit Nair",
+      "start": "2026-10-29",
+      "end": "2026-10-31",
+      "days": 2,
+      "payout": 2660,
+      "status": "Accepted",
+      "ownerId": "user-demo"
+    },
+    {
+      "id": "req-2",
+      "vehicleId": "my-re350",
+      "vehicle": "Royal Enfield Classic 350",
+      "renter": "Meera Joshi",
+      "start": "2026-11-02",
+      "end": "2026-11-03",
+      "days": 1,
+      "payout": 855,
+      "status": "Accepted",
+      "ownerId": "user-demo"
+    },
+    {
+      "id": "req-3",
+      "vehicleId": "my-i20",
+      "vehicle": "Hyundai i20",
+      "renter": "Vikram Rao",
+      "start": "2026-10-15",
+      "end": "2026-10-17",
+      "days": 2,
+      "payout": 2660,
+      "status": "Accepted",
+      "ownerId": "user-demo"
+    },
+    {
+      "id": "req-4",
+      "vehicleId": "my-re350",
+      "vehicle": "Royal Enfield Classic 350",
+      "renter": "Sana Qureshi",
+      "start": "2026-10-07",
+      "end": "2026-10-09",
+      "days": 2,
+      "payout": 1710,
+      "status": "Accepted",
+      "ownerId": "user-demo"
+    }
+  ],
+  "conversations": [
+    {
+      "id": "chat-user-demo-arjun-mehta",
+      "name": "Arjun Mehta",
+      "initials": "AM",
+      "vehicle": "Hyundai Creta",
+      "unread": 0,
+      "userId": "user-demo",
+      "messages": [
+        {
+          "from": "them",
+          "text": "Hi! Is the car available for tomorrow?",
+          "time": "10:40 AM"
+        },
+        {
+          "from": "me",
+          "text": "Yes, it is available. What time would you like to pick it up?",
+          "time": "10:41 AM"
+        }
+      ]
+    },
+    {
+      "id": "chat-user-demo-priya-sharma",
+      "name": "Priya Sharma",
+      "initials": "PS",
+      "vehicle": "Honda City",
+      "unread": 0,
+      "userId": "user-demo",
+      "messages": [
+        {
+          "from": "them",
+          "text": "Thanks! I will pick it up at 9 AM.",
+          "time": "Yesterday"
+        }
+      ]
+    },
+    {
+      "id": "chat-user-demo-rahul-verma",
+      "name": "Rahul Verma",
+      "initials": "RV",
+      "vehicle": "Tata Nexon EV",
+      "unread": 0,
+      "userId": "user-demo",
+      "messages": [
+        {
+          "from": "them",
+          "text": "Can we extend the booking by one day?",
+          "time": "Yesterday"
+        },
+        {
+          "from": "me",
+          "text": "yes",
+          "time": "Now"
+        },
+        {
+          "from": "them",
+          "text": "Got it, thanks for letting me know!",
+          "time": "Now"
+        }
+      ]
+    }
+  ],
+  "rides": [
+    {
+      "id": "ride-1",
+      "driver": "Aarav Sharma",
+      "rating": 4.9,
+      "trips": 128,
+      "verified": true,
+      "from": "Rajpura",
+      "to": "Chandigarh",
+      "date": "2026-10-28",
+      "time": "09:00",
+      "durationMin": 60,
+      "seats": 3,
+      "price": 150,
+      "vehicle": "Maruti Swift",
+      "womenOnly": false,
+      "prefs": [
+        "No smoking",
+        "Music"
+      ]
+    },
+    {
+      "id": "ride-2",
+      "driver": "Priya Verma",
+      "rating": 5,
+      "trips": 86,
+      "verified": true,
+      "from": "Patiala",
+      "to": "Chandigarh",
+      "date": "2026-10-29",
+      "time": "10:30",
+      "durationMin": 85,
+      "seats": 2,
+      "price": 120,
+      "vehicle": "Hyundai i20",
+      "womenOnly": true,
+      "prefs": [
+        "Women only",
+        "No smoking"
+      ]
+    },
+    {
+      "id": "ride-3",
+      "driver": "Kabir Singh",
+      "rating": 4.7,
+      "trips": 54,
+      "verified": true,
+      "from": "Rajpura",
+      "to": "Patiala",
+      "date": "2026-10-28",
+      "time": "08:15",
+      "durationMin": 40,
+      "seats": 2,
+      "price": 80,
+      "vehicle": "Honda City",
+      "womenOnly": false,
+      "prefs": [
+        "Quiet ride"
+      ]
+    },
+    {
+      "id": "ride-4",
+      "driver": "Simran Kaur",
+      "rating": 4.8,
+      "trips": 71,
+      "verified": true,
+      "from": "Chandigarh",
+      "to": "Rajpura",
+      "date": "2026-10-28",
+      "time": "18:30",
+      "durationMin": 60,
+      "seats": 3,
+      "price": 140,
+      "vehicle": "Tata Nexon",
+      "womenOnly": false,
+      "prefs": [
+        "Music",
+        "Pets ok"
+      ]
+    },
+    {
+      "id": "ride-5",
+      "driver": "Harpreet Gill",
+      "rating": 4.6,
+      "trips": 40,
+      "verified": false,
+      "from": "Ludhiana",
+      "to": "Chandigarh",
+      "date": "2026-10-30",
+      "time": "07:45",
+      "durationMin": 120,
+      "seats": 4,
+      "price": 300,
+      "vehicle": "Toyota Innova",
+      "womenOnly": false,
+      "prefs": [
+        "No smoking"
+      ]
+    }
+  ],
+  "rideBookings": [],
+  "favorites": [],
+  "earningsHistory": [
+    {
+      "id": "eh-1",
+      "userId": "user-demo",
+      "data": [
+        3200,
+        4100,
+        5200,
+        4800,
+        6400
+      ]
+    }
+  ]
+}

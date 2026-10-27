@@ -1,14 +1,41 @@
 {
-  "name": "01-folder-rtx",
+  "name": "KeysNearby",
   "version": "1.0.0",
-  "private": true,
+  "type": "module",
   "scripts": {
-    "start": "npm --prefix keys-nearby run dev",
-    "dev": "npm --prefix keys-nearby run dev",
-    "build": "npm --prefix keys-nearby run build",
-    "preview": "npm --prefix keys-nearby run preview"
+    "dev": "concurrently -k -n api,app -c yellow,cyan \"npm run api\" \"vite\"",
+    "start": "npm run dev",
+    "dev:app": "vite",
+    "build": "vite build",
+    "reset-db": "node scripts/seed.js",
+    "api": "json-server --watch db.json --port 3001 --delay 400",
+    "dev:all": "npm run dev"
   },
   "dependencies": {
-    "gsap": "^3.15.0"
-  }
+    "@reduxjs/toolkit": "^2.8.2",
+    "@vitejs/plugin-react": "^6.1.1",
+    "axios": "^1.21.0",
+    "gsap": "^3.15.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6",
+    "json-server": "^0.17.4",
+    "vite": "^8.3.0"
+  },
+  "description": "This is an app where you can easily rent or list your vehicle .",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharma07abhey-star/KeysNearby-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sharma07abhey-star/KeysNearby-/issues"
+  },
+  "homepage": "https://github.com/sharma07abhey-star/KeysNearby-#readme"
 }

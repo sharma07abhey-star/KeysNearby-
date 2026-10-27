@@ -1,154 +1,161 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import Field from "../components/form/Field";
+import { useDemo } from "../hooks/useDemo";
+import { useForm } from "../hooks/useForm";
+import { createUser, getUserByEmail } from "../services/api";
+import { createValidator, email, minLength, required } from "../utils/validators";
 import "./Login.css";
-
-const initial = { name: "", email: "", password: "" };
 
 export default function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { user, signIn } = useDemo();
   const [mode, setMode] = useState("signin");
-  const [values, setValues] = useState(initial);
-  const [errors, setErrors] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
+  const [authError, setAuthError] = useState("");
+  const [saving, setSaving] = useState(false);
+
+  const goTo = location.state?.from || "/dashboard";
+
+  const form = useForm({
+    initialValues: { name: "", email: "", password: "" },
+    validate: (values) =>
+      createValidator({
+        name: mode === "signup" ? [required("Name is required."), minLength(2)] : [],
+        email: [required("Email is required."), email()],
+        password: [required("Password is required."), minLength(6, "Minimum 6 characters.")],
+      })(values),
+    onSubmit: async (values) => {
+      setAuthError("");
+      setSaving(true);
+      try {
+        if (mode === "signin") {
+          // getUserByEmail normalises to lowercase inside api.js
+          const found = await getUserByEmail(values.email.trim());
+          if (!found || found.password !== values.password) {
+            setAuthError("Incorrect email or password.");
+            setSaving(false);
+            return;
+          }
+          // Strip password before passing to context — security requirement 9
+          // eslint-disable-next-line no-unused-vars
+          const { password: _pw, ...safe } = found;
+          signIn(safe);
+        } else {
+          // Reject duplicate email (api.js lowercases before querying)
+          const existing = await getUserByEmail(values.email.trim());
+          if (existing) {
+            setAuthError("An account with this email already exists.");
+            setSaving(false);
+            return;
+          }
+          // createUser strips password before returning — see api.js
+          // Passwords stored plain text in db.json (mock only).
+          // A real backend would hash with bcrypt / Argon2.
+          const newUser = await createUser({
+            name: values.name.trim(),
+            email: values.email.trim(),
+            password: values.password,
+            phone: "",
+            location: "Koramangala, Bengaluru",
+            verification: { email: true, phone: false, identity: false, licence: false },
+          });
+          signIn(newUser);
+        }
+        navigate(goTo, { replace: true });
+      } catch (err) {
+        setAuthError(err.message);
+        setSaving(false);
+      }
+    },
+  });
+
+  if (user) return <Navigate to={goTo} replace />;
+
   function switchMode(next) {
     setMode(next);
-    setValues(initial);
-    setErrors({});
+    setAuthError("");
+    form.reset();
   }
 
-  function submit(event) {
-    event.preventDefault();
-    const next = {};
-    if (mode === "signup" && !values.name.trim()) {
-      next.name = "Name is required.";
-    }
-
-    if (!/^\S+@\S+\.\S+$/.test(values.email)) {
-      next.email = values.email ? "Enter a valid email." : "Email is required.";
-    }
-
-    if (values.password.length < 6) {
-      next.password = values.password
-        ? "Minimum 6 characters."
-        : "Password is required.";
-    }
-
-    setErrors(next);
-
-    // This is only a frontend demonstration flow, not real authentication.
-    if (!Object.keys(next).length) {
-      // Persist user identity so the sidebar can display the real name/email.
-      localStorage.setItem("userEmail", values.email);
-      if (values.name) {
-        localStorage.setItem("userName", values.name);
+  async function demoLogin() {
+    setSaving(true);
+    setAuthError("");
+    try {
+      const demo = await getUserByEmail("abhey@example.com");
+      if (demo) {
+        // eslint-disable-next-line no-unused-vars
+        const { password: _pw, ...safe } = demo;
+        signIn(safe);
       } else {
-        localStorage.removeItem("userName");
+        const created = await createUser({
+          name: "Abhey Sharma",
+          email: "abhey@example.com",
+          password: "demo123",
+          phone: "",
+          location: "Koramangala, Bengaluru",
+          verification: { email: true, phone: false, identity: false, licence: false },
+        });
+        signIn(created);
       }
-      navigate("/dashboard");
+      navigate(goTo, { replace: true });
+    } catch (err) {
+      setAuthError(err.message);
+      setSaving(false);
     }
   }
+
   return (
     <main className="auth-page">
       <section className="auth-card" aria-labelledby="auth-heading">
         <div className="auth-logo">
           <span id="auth-heading">Keys Nearby</span>
         </div>
-        <div
-          className="auth-toggle"
-          role="tablist"
-          aria-label="Authentication mode"
-        >
-          <button
-            className={mode === "signin" ? "active" : ""}
-            onClick={() => switchMode("signin")}
-            role="tab"
-            aria-selected={mode === "signin"}
-            type="button"
-          >
-            Sign In
-          </button>
-          <button
-            className={mode === "signup" ? "active" : ""}
-            onClick={() => switchMode("signup")}
-            role="tab"
-            aria-selected={mode === "signup"}
-            type="button"
-          >
-            Create Account
-          </button>
+        <p className="auth-lead">
+          {mode === "signin" ? "Welcome back. Sign in to continue." : "Create an account to rent, host and pool rides."}
+        </p>
+
+        <div className="auth-toggle" role="tablist" aria-label="Authentication mode">
+          <button className={mode === "signin" ? "active" : ""} onClick={() => switchMode("signin")} role="tab" aria-selected={mode === "signin"} type="button">Sign In</button>
+          <button className={mode === "signup" ? "active" : ""} onClick={() => switchMode("signup")} role="tab" aria-selected={mode === "signup"} type="button">Create Account</button>
         </div>
-        <form className="auth-form" onSubmit={submit} noValidate>
-          {mode === "signup" && (
-            <Field
-              label="Full Name"
-              id="full-name"
-              value={values.name}
-              error={errors.name}
-              placeholder="Your full name"
-              onChange={(value) => setValues({ ...values, name: value })}
-            />
-          )}
-          <Field
-            label="Email"
-            id="email"
-            type="email"
-            value={values.email}
-            error={errors.email}
-            placeholder="you@example.com"
-            onChange={(value) => setValues({ ...values, email: value })}
-          />
+
+        <form className="auth-form" onSubmit={form.handleSubmit} noValidate>
+          {mode === "signup" && <Field label="Full name" placeholder="Your full name" autoComplete="name" {...form.getFieldProps("name")} />}
+          <Field label="Email" type="email" placeholder="you@example.com" autoComplete="email" {...form.getFieldProps("email")} />
           <Field
             label="Password"
-            id="password"
-            type="password"
-            value={values.password}
-            error={errors.password}
+            type={showPassword ? "text" : "password"}
             placeholder="Min. 6 characters"
-            onChange={(value) => setValues({ ...values, password: value })}
+            autoComplete={mode === "signin" ? "current-password" : "new-password"}
+            {...form.getFieldProps("password")}
           />
-          <button className="auth-submit-btn" type="submit">
-            Continue →
+          <label className="auth-check">
+            <input type="checkbox" checked={showPassword} onChange={(e) => setShowPassword(e.target.checked)} /> Show password
+          </label>
+
+          {authError && (
+            <p className="ui-error" role="alert" style={{ margin: "0 0 4px" }}>{authError}</p>
+          )}
+
+          <button className="auth-submit-btn" type="submit" disabled={saving}>
+            {saving ? "Please wait…" : "Continue →"}
           </button>
         </form>
+
+        <button type="button" className="auth-demo-btn" onClick={demoLogin} disabled={saving}>
+          Explore with a demo account
+        </button>
+
         <div className="auth-footer">
-          {mode === "signin"
-            ? "Don't have an account? "
-            : "Already have an account? "}
-          <button
-            type="button"
-            onClick={() => switchMode(mode === "signin" ? "signup" : "signin")}
-          >
+          {mode === "signin" ? "Don't have an account? " : "Already have an account? "}
+          <button type="button" onClick={() => switchMode(mode === "signin" ? "signup" : "signin")}>
             {mode === "signin" ? "Sign up" : "Sign in"}
           </button>
         </div>
-        <Link className="auth-back-link" to="/">
-          ← Back to Home
-        </Link>
+        <Link className="auth-back-link" to="/">← Back to Home</Link>
       </section>
     </main>
-  );
-}
-
-function Field({
-  label,
-  id,
-  type = "text",
-  value,
-  error,
-  placeholder,
-  onChange,
-}) {
-  return (
-    <div className="form-group">
-      <label htmlFor={id}>{label}</label>
-      <input
-        id={id}
-        type={type}
-        className={error ? "error" : ""}
-        value={value}
-        placeholder={placeholder}
-        onChange={(event) => onChange(event.target.value)}
-      />
-      {error && <span className="form-error">{error}</span>}
-    </div>
   );
 }
